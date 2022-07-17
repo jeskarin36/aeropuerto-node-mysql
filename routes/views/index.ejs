@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   
+    <!--
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="#">Image</a>
+            </li>
+          </ul>
+          <form class="d-flex" action="busqueda" method="post">
+            <input class="form-control me-2" name="buscador" type="search" placeholder="Ingrese su Destino" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+-->
+
+ <header class="header">
+        <div class="header-title">
+          <img src="/images/logo.png" alt="" srcset="">
+          <h4>TRAVELLING</h4>
+        </div>
+        <nav>
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">Packages</a>
+          <a href="">Hotels</a>
+          <a href="">Insurence</a>
+          <a href=" ">Blog</a>
+          <a href=""> Pages</a>
+          <a href="">contact</a>
+        </nav>
+    </header>
+
+  <div class="contenedor-header">
+   
+    <div class="contenedor-informacion">
+        <div class="informacion-texto">
+          <h4>AWAY FROM MONOTONOUS LIFE</h4>
+          <h2>MAGICAL TRAVEL</h2>
+          <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.</p>
+          <button>Get Started</button>
+        </div>
+        <div class="informacion-form">
+            <div class="cuadro-form">
+              <h4>FLIGHT</h4>
+            </div>
+            <form action="busqueda" method="post" class="form">
+              <input type="text" name="Destino" id="" placeholder="From">
+              <input type="text" name="Origen" id="" placeholder="To">
+              <input type="text" name="Ida" id="" placeholder="Start">
+              <input type="text" name="Vuelta" id="" placeholder="Return">
+              <input type="text" name="Adulto" id="" placeholder="Adults">
+              <input type="text" name="Niño" id="" placeholder="Child">
+              <input type="submit" value="Search Flights">
+            </form>
+        </div>
+    </div>
+  </div>
+
+  <div class="contenedor-popular-destino">
+     <div class="texto">
+      <h4>Popular Destinations</h4>
+      <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
+ 
+     </div>
+     <div class="contenedor-articulo-popular">
+
+        <% for(let i=0;i< 3;i++){ %>
+         
+          <div class="articulo-popular-destino" id="<%= dat[i].ID%>" >
+            <a href="">$Precio</a>
+            <h2><%= dat[i].Destino %></h2>
+            <p> $<%= dat[i].Precio %></p>
+           </div>
+           <script>
+            document.getElementById('<%= dat[i].ID%>').style.backgroundImage = "url('<%=dat[i].Img%>')";
+            
+          </script>
+          
+      <%  }; %>
+     </div>
+  </div>
+
+  <div class="contenedor-tabla-paquetes">
+     <div class="tabla-paquetes-title">
+        <h4>We Provide Affordable Prices</h4>
+        <p>Well educated, intellectual people, especially scientists at all times demonstrate considerably.</p>
+     </div>
+     <div class="contenedor-tablas">
+        <div class="contenedor-tabla-1"> 
+            <div class="tabla-1-title"> 
+              <h4>Cheap Packages</h4>
+            </div>
+      
+           <% for(let i=0;i< 5 ;i++){ %>
+            <div class="tabla-1-items">
+              <h5><%= dat[i].Destino %></h5>
+              <a href="">$<%= dat[i].Precio %></a>
+            </div>
+            <% } %>
+        </div>
+        
+        <div class="contenedor-tabla-1"> 
+          <div class="tabla-1-title"> 
+            <h4>Luxury Packages</h4>
+          </div>
+          <% for(let i=0;i< 5 ;i++){ %>
+            <div class="tabla-1-items">
+              <h5><%= dat[i].Origen %></h5>
+              <a href="">$<%= dat[i].Precio %></a>
+            </div>
+            <% } %>
+        </div>
+
+        <div class="contenedor-tabla-1"> 
+          <div class="tabla-1-title"> 
+            <h4>Camping Packages</h4>
+          </div>
+          <% for(let i=0;i< 5 ;i++){ %>
+            <div class="tabla-1-items">
+              <h5><%= dat[i].Destino %></h5>
+              <a href="">$<%= dat[i].Precio %></a>
+            </div>
+            <% } %>
+        </div>
+     </div>
+  </div>
+
+  <div class="contenedor-otros">
+    <div class="otros-title">
+        <h4>Other issues we can help you with</h4>
+        <p>We all live in an age that belongs to the young at heart. Life that is.</p>
+    </div>
+    <div class="contenedor-articulos-otros">
+      <div class="articulo-otros">
+        <img src="/images/Caracas.jpg" alt="" srcset="">
+        <a href="">Rent a Car</a>
+        <p>The preservation of human life is the ultimate value, a pillar of ethics and the foundation.</p>
+      </div>
+      <div class="articulo-otros">
+        <img src="/images/seascapes-2104753.jpg" alt="" srcset="">
+        <a href="">Cruise Booking</a>
+        <p>The preservation of human life is the ultimate value, a pillar of ethics and the foundation.</p>
+      </div>
+      <div class="articulo-otros">
+        <img src="/images/1366_521.jpeg" alt="" srcset="">
+        <a href="">To Do List</a>
+        <p>The preservation of human life is the ultimate value, a pillar of ethics and the foundation.</p>
+      </div>
+      <div class="articulo-otros">
+        <img src="/images/Caracas.jpg" alt="" srcset="">
+        <a href="">Food Features</a>
+        <p>The preservation of human life is the ultimate value, a pillar of ethics and the foundation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contenedor-testimonio">
+    <div class="contenedor-testimonio-title">
+      <h4>Testimonial from our Clients</h4>
+      <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from</p>
+    </div>
+    <div class="contenedor-artilos-testimonios">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="cards-wrapper"> 
+                <div class="contenedor-comentario">
+                  <div class="contenedor-comentario-img">
+                     <img src="/images/121693.png"  alt="" srcset="">
+                  </div>
+                  <div class="contenedor-comentario-texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa sunt vero neque facilis. Quae temporibus adipisci maiores.</p>
+                    <h4>Jeskarin Martinez</h4>
+                  </div>
+                </div>
+                <div class="contenedor-comentario">
+                  <div class="contenedor-comentario-img">
+                    <img src="/images/121693.png"  alt="" srcset="">
+                  </div>
+                  <div class="contenedor-comentario-texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa sunt vero neque facilis. Quae temporibus adipisci maiores.</p>
+                    <h4>Jeskarin Martinez</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="cards-wrapper"> 
+                <div class="contenedor-comentario">
+                  <div class="contenedor-comentario-img">
+                     <img src="/images/121693.png"  alt="" srcset="">
+                  </div>
+                  <div class="contenedor-comentario-texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa sunt vero neque facilis. Quae temporibus adipisci maiores.</p>
+                    <h4>Jeskarin Martinez</h4>
+                  </div>
+                </div>
+                <div class="contenedor-comentario">
+                  <div class="contenedor-comentario-img">
+                    <img src="/images/121693.png"  alt="" srcset="">
+                  </div>
+                  <div class="contenedor-comentario-texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa sunt vero neque facilis. Quae temporibus adipisci maiores.</p>
+                    <h4>Jeskarin Martinez</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="cards-wrapper"> 
+                <div class="contenedor-comentario">
+                  <div class="contenedor-comentario-img">
+                     <img src="/images/121693.png"  alt="" srcset="">
+                  </div>
+                  <div class="contenedor-comentario-texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa sunt vero neque facilis. Quae temporibus adipisci maiores.</p>
+                    <h4>Jeskarin Martinez</h4>
+                  </div>
+                </div>
+                <div class="contenedor-comentario">
+                  <div class="contenedor-comentario-img">
+                    <img src="/images/121693.png"  alt="" srcset="">
+                  </div>
+                  <div class="contenedor-comentario-texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa sunt vero neque facilis. Quae temporibus adipisci maiores.</p>
+                    <h4>Jeskarin Martinez</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+   <div class="contendor-informacion">
+      <div class="informacion-texto-2">
+        <h4>Did not find your Package?</h4>
+        <h4>Feel free to ask us.  We‘ll make it for you</h4>
+        <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.</p>
+        <a href="">REQUEST CUSTOM  PRICE</a>
+      </div>
+      <div class="informacion-img">
+        <img src="/images/seascapes-2104753.jpg" alt="">
+      </div>
+   </div>
+ 
+   <div class="contenedor-last">
+    <div class="contenedor-testimonio-title">
+      <h4>Latest from Our Blog</h4>
+      <p>With the exception of Nietzsche, no other madman has contributed so much to human sanity as has.</p>
+    </div>
+    <div id="carouselExampleIndicator" class="carousel carousel2 slide" data-bs-ride="carousel" >
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+           <div class="cards-wrapper-2">
+              <% for(let i=0; i< 3; i++){ %>
+                <div class="articulo-last">
+                  <div class="articulo-last-img">
+                    <img src=" <%= dat[i].Img %>"  alt="" srcset="">
+                  </div>
+                  <div class="articulo-last-tag">
+                    <a href="">Travel</a>
+                    <a href="">Travel</a>
+                  </div>
+                  <a href="">Lorem ipsum dolor sit.</a>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p><span>31 Enero, 2022</span></p>
+              </div>
+              <% } %>
+           </div>
+        </div>
+        <div class="carousel-item">
+          <div class="cards-wrapper-2">
+            <% for(let i=3; i< 6; i++){ %>
+              <div class="articulo-last">
+                <div class="articulo-last-img">
+                  <img src=" <%= dat[i].Img %>"  alt="" srcset="">
+                </div>
+                <div class="articulo-last-tag">
+                  <a href="">Travel</a>
+                  <a href="">Travel</a>
+                </div>
+                <a href="">Lorem ipsum dolor sit.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p><span>31 Enero, 2022</span></p>
+            </div>
+            <% } %>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="cards-wrapper-2">
+            <% for(let i=6; i< 9; i++){ %>
+              <div class="articulo-last">
+                <div class="articulo-last-img">
+                  <img src=" <%= dat[i].Img %>"  alt="" srcset="">
+                </div>
+                <div class="articulo-last-tag">
+                  <a href="">Travel</a>
+                  <a href="">Travel</a>
+                </div>
+                <a href="">Lorem ipsum dolor sit.</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p><span>31 Enero, 2022</span></p>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicator" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+        
+   </div>
+
+   <footer>
+      <div class="contenedor-footer">
+          <div class="contenedor-about">
+              <h4>ABOUT AGENCY</h4>
+              <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point</p>
+          </div>
+          <div class="contenedor-link">
+            <h4>NAVIGATION LINKS</h4>
+            <div class="link">
+              <div class="link-1">
+                <a href="">Home</a>
+                <a href="">Team</a>
+                <a href="">Feature</a>
+                <a href="">Pricing</a>
+              </div>
+              <div class="link-2">
+                <a href="">Services</a>
+                <a href="">Blog</a>
+                <a href="">Portfolio</a>
+                <a href="">Contact</a>
+              </div>
+  
+            </div>
+          </div>
+          <div class="contenedor-new">
+             <h4>NEWSLETTER</h4>
+             <p>For business professionals caught between high OEM price and mediocre print and graphic output.</p>
+             <form action="" class="contenedor-form">
+               <input type="email" name="" placeholder="Email" id="">
+               <input type="submit" value="">
+             </form>
+          </div>
+          <div class="contenedor-INSTAFEED">
+            <h4>INSTAFEED</h4>
+          </div>
+      </div>
+      <p>Create by Jeskarin Martinez</p>
+   </footer>
+
+
+  <!--
+    <section >
+      <% for(let i=0; i< dat.length;i++){ %>
+        <div class="card" style="width: 18rem;">
+          <img src='<%= dat[i].Imagen %>' height="250px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">De <%= dat[i].Origen %> a  <%= dat[i].Destino %></h5>
+            <p class="card-text">$Precio: <%= dat[i].Precio %></p>
+            <a href="/busqueda/Destino?id=<%= dat[i].ID%>" class="btn btn-primary">Ver mas</a>
+          </div>
+        </div>
+     <% } %>
+    </section>
+  -->
+    
+
+    <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="/javascripts/posicion.js"></script>
+  </body>
+</html>
